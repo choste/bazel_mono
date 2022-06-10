@@ -1,5 +1,5 @@
 load("@build_bazel_rules_nodejs//:index.bzl", "nodejs_binary")
-load(":jest.bzl", "jest_test")
+load("//tools/jest:jest.bzl", "jest_test")
 load(
     "@io_bazel_rules_docker//container:container.bzl",
     "container_image",
