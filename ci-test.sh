@@ -5,7 +5,7 @@ workspace_path=$PWD
 # Path to your Bazel executable
 bazel_path="bazelisk"
 # Starting Revision SHA
-previous_revision=$1
+previous_revision=${1:-"HEAD^1"}
 # Final Revision SHA
 final_revision="main"
 

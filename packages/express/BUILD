@@ -42,5 +42,5 @@ container_push(
   registry = "us-west1-docker.pkg.dev",
   repository = "bazel-352318/bazel/express",
   image = ":image",
-  tag = "0.0.2",
+  tag = "0.0.1",
 )

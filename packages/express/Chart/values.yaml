@@ -1,4 +1,4 @@
 image:
   repository: us-west1-docker.pkg.dev/bazel-352318/bazel/express
-  tag: dev
+  tag: 0.0.1
   pullPolicy: IfNotPresent
