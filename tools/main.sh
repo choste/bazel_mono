@@ -1,6 +1,6 @@
 echo "helm package $1"
 
-PACKAGE_OUTPUT=$(helm package /home/sepia/code/experiments/bazel/$1)
+PACKAGE_OUTPUT=$(helm package /home/sepia/code/experiments/bazel/${1})
 
 echo "${PACKAGE_OUTPUT}"
 

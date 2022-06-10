@@ -37,10 +37,10 @@ jest_test(
 )
 
 container_push(
-  name = "publish",
+  name = "container_push",
   format = "Docker",
   registry = "us-west1-docker.pkg.dev",
   repository = "bazel-352318/bazel/express",
   image = ":image",
-  tag = "dev",
+  tag = "0.0.1",
 )
