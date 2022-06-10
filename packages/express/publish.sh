@@ -1,0 +1,1 @@
+bazel run //tools:publish packages/express/Chart/

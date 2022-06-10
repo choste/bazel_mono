@@ -1,0 +1,21 @@
+apiVersion: skaffold/v2beta28
+kind: config
+build:
+  artifacts:
+  - image: us-west1-docker.pkg.dev/bazel-352318/bazel/express
+    bazel:
+      target: //packages/express:image.tar
+deploy:
+  helm:
+    releases:
+    - name: express
+      chartPath: ./packages/express/Chart
+      artifactOverrides:
+        image: us-west1-docker.pkg.dev/bazel-352318/bazel/express
+      imageStrategy:
+        helm: {}
+portForward:
+- resourceType: service
+  resourceName: express-service
+  port: 3000
+  localPort: 3000
