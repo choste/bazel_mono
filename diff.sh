@@ -1,13 +1,13 @@
 #!/bin/bash
 
 # Path to your Bazel WORKSPACE directory
-workspace_path=$1
+workspace_path=$PWD
 # Path to your Bazel executable
-bazel_path=$2
+bazel_path="bazelisk"
 # Starting Revision SHA
-previous_revision=$3
+previous_revision=$1
 # Final Revision SHA
-final_revision=$4
+final_revision="main"
 
 starting_hashes_json="/tmp/starting_hashes.json"
 final_hashes_json="/tmp/final_hashes.json"
@@ -35,8 +35,8 @@ $bazel_diff generate-hashes -w $workspace_path -b $bazel_path $final_hashes_json
 echo "Determining Impacted Targets"
 $bazel_diff get-impacted-targets -sh $starting_hashes_json -fh $final_hashes_json -o $impacted_targets_path
 
-IFS=$'\n' read -d '' -r -a impacted_targets < $impacted_targets_path
-formatted_impacted_targets=$(IFS=$'\n'; echo "${impacted_targets[*]}")
-echo "Impacted Targets between $previous_revision and $final_revision:"
-echo $formatted_impacted_targets
-echo ""
+list=$(grep :test$ $impacted_targets_path)
+
+while IFS= read -r line; do
+    bazel test $line
+done <<< "$list"
