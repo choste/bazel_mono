@@ -35,8 +35,8 @@ $bazel_diff generate-hashes -w $workspace_path -b $bazel_path $final_hashes_json
 echo "Determining Impacted Targets"
 $bazel_diff get-impacted-targets -sh $starting_hashes_json -fh $final_hashes_json -o $impacted_targets_path
 
-list=$(grep :container_publish$ $impacted_targets_path)
+list=$(grep :container_push$ $impacted_targets_path)
 
-while IFS= read -r line; do   
-    [[ !  -z  $line  ]] && bazel run //tools:publish ${line:2}
+while IFS= read -r line; do
+    [[ ${line} =~ \/\/(.*):container_push ]] && bazel run //tools:publish ${BASH_REMATCH[1]}
 done <<< "$list"
