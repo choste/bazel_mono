@@ -38,5 +38,7 @@ $bazel_diff get-impacted-targets -sh $starting_hashes_json -fh $final_hashes_jso
 list=$(grep :container_push$ $impacted_targets_path)
 
 while IFS= read -r line; do
-    [[ ${line} =~ \/\/(.*):container_push ]] && bazel run //tools:publish ${BASH_REMATCH[1]}
+    [[ $line =~ ^[\s]*$ ]] && continue
+    bazel run ${line}
+    [[ ${line} =~ \/\/(.*):container_push ]] && bazel run //tools:publish $PWD/${BASH_REMATCH[1]}/Chart
 done <<< "$list"

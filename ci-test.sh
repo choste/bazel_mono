@@ -38,5 +38,6 @@ $bazel_diff get-impacted-targets -sh $starting_hashes_json -fh $final_hashes_jso
 list=$(grep :test$ $impacted_targets_path)
 
 while IFS= read -r line; do
-    bazel test $line
+[[ $line =~ ^[\s]*$ ]] && continue
+bazel test $line
 done <<< "$list"
