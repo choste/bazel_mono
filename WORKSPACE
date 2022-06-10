@@ -50,3 +50,14 @@ load(
 )
 
 _nodejs_image_repos()
+
+# Bazel Diff
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_jar")
+
+http_jar(
+    name = "bazel_diff",
+    urls = [
+        "https://github.com/Tinder/bazel-diff/releases/download/4.0.2/bazel-diff_deploy.jar",
+    ],
+    sha256 = "2814abd89064e917bf60a347c13cef52f02b8b09d76363cbc2f1bfc5f2901612",
+)
