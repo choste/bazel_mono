@@ -6,6 +6,7 @@ load(
     "container_push"
 )
 load("@io_bazel_rules_docker//nodejs:image.bzl", "nodejs_image")
+load("//tools/publish:helm_publish.bzl", "chart_push")
 
 nodejs_binary(
     name = "app",
@@ -43,4 +44,9 @@ container_push(
   repository = "bazel-352318/bazel/express",
   image = ":image",
   tag = "0.0.2",
+)
+
+chart_push(
+  name = "chart_push",
+  src = ":Chart/Chart.yaml"
 )

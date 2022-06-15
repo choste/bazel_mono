@@ -1,6 +1,7 @@
-echo "helm package $1"
+DIR=$(dirname "$1")
+echo "helm package $DIR"
 
-PACKAGE_OUTPUT=$(helm package ${1})
+PACKAGE_OUTPUT=$(helm package ${DIR})
 
 echo "${PACKAGE_OUTPUT}"
 

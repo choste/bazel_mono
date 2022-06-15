@@ -1,1 +1,1 @@
-bazel run //tools:publish packages/express/Chart/
+bazel build //packages/express:chart_push --spawn_strategy=standalone
