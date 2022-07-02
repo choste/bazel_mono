@@ -1,0 +1,16 @@
+name: job_creator
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  one:
+    runs-on: self-hosted
+    steps:
+      - name: "Yo"
+        run: "echo Yo One"
+  two:
+    runs-on: self-hosted
+    steps:
+      - name: "Yo"
+        run: "echo Yo Two"
