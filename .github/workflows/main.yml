@@ -14,3 +14,43 @@ jobs:
     steps:
       - name: "Yo"
         run: "echo Yo Two"
+  three:
+    runs-on: self-hosted
+    steps:
+      - name: "Yo"
+        run: "echo Yo Three"
+  four:
+    runs-on: self-hosted
+    steps:
+      - name: "Yo"
+        run: "echo Yo Four"
+  five:
+    runs-on: self-hosted
+    steps:
+      - name: "Yo"
+        run: "echo Yo Five"
+  six:
+    runs-on: self-hosted
+    steps:
+      - name: "Yo"
+        run: "echo Yo Six"
+  seven:
+    runs-on: self-hosted
+    steps:
+      - name: "Yo"
+        run: "echo Yo Seven"
+  eight:
+    runs-on: self-hosted
+    steps:
+      - name: "Yo"
+        run: "echo Yo Eight"
+  nine:
+    runs-on: self-hosted
+    steps:
+      - name: "Yo"
+        run: "echo Yo Nine"
+  ten:
+    runs-on: self-hosted
+    steps:
+      - name: "Yo"
+        run: "echo Yo Ten"
